@@ -1,0 +1,38 @@
+@use "/src/scss/" as ext;
+
+.posts {
+  padding: 1rem;
+  &__list {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    padding: 1rem 0;
+    list-style-type: none;
+  }
+}
+
+.blog {
+  padding: 1rem;
+  border-radius: 0.57rem;
+  background-color: ext.$LIGHT-PRIMARY-COLOR;
+  &__date {
+    font-size: 0.75rem;
+  }
+}
+
+.blog:hover {
+  transition: all 150ms;
+  background-color: ext.$SECONDARY-COLOR;
+  color: ext.$FONT-SECONDARY-COLOR;
+}
+
+@include ext.breakpoint-for("phone") {
+  .blog {
+    &__title {
+      font-size: 1.25rem;
+    }
+    &__date {
+      padding-top: 0.2rem;
+    }
+  }
+}

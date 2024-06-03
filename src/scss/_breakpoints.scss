@@ -1,0 +1,29 @@
+$breakpoints-range-start: (
+  "phone": 0rem,
+  "ipad": calc(32rem + 1px),
+  "desktop": 64rem,
+);
+
+$breakpoints-range-end: (
+  "phone": 32rem,
+  "ipad": calc(64rem - 1px),
+  "desktop": 512rem,
+);
+
+@mixin breakpoint-for($display) {
+  @media screen and (min-width: map-get($breakpoints-range-start, $display)) and (max-width: map-get($breakpoints-range-end, $display)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down-from($display) {
+  @media screen and (max-width: map-get($breakpoints-range-end, $display)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-up-from($display) {
+  @media screen and (min-width: map-get($breakpoints-range-start, $display)) {
+    @content;
+  }
+}

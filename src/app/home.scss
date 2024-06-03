@@ -1,0 +1,20 @@
+@use "/src/scss/" as ext;
+
+.home {
+  // padding-top: 1.75rem;
+  &__heading {
+    padding: 0 1rem;
+    font-size: 2.25rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 3px;
+  }
+}
+
+@include ext.breakpoint-for("phone") {
+  .home {
+    &__heading {
+      font-size: 1.5rem;
+    }
+  }
+}

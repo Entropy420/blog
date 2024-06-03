@@ -1,0 +1,21 @@
+@use "/src/scss/" as ext;
+
+.picture {
+  > img {
+    display: block;
+    width: 280px;
+    height: auto;
+    margin: 2rem auto;
+    padding: 0.85rem;
+    border: 0.75rem dashed ext.$FONT-PRIMARY-COLOR;
+    border-radius: 50%;
+  }
+}
+
+@include ext.breakpoint-for("phone") {
+  .picture {
+    > img {
+      width: 200px;
+    }
+  }
+}

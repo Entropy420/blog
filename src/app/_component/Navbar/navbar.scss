@@ -1,0 +1,43 @@
+@use "/src/scss/" as ext;
+
+.nav {
+  background-color: ext.$SECONDARY-COLOR;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+  &__wrapper {
+    padding: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__home-link {
+    color: ext.$FONT-SECONDARY-COLOR;
+    font-family: monospace;
+    font-size: 1.75rem;
+    font-weight: bold;
+  }
+
+  &__social-links {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    > a {
+      line-height: 0;
+      font-size: 2.25rem;
+      color: ext.$FONT-SECONDARY-COLOR;
+    }
+  }
+}
+
+@include ext.breakpoint-for("phone") {
+  .nav {
+    &__wrapper {
+      flex-flow: column;
+    }
+  }
+}
