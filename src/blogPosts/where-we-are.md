@@ -1,5 +1,5 @@
 ---
-title: Where we are, The Building of Glitch starts now
+title: Where we are
 date: 2024-06-01
 ---
 

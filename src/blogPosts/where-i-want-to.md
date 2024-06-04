@@ -1,5 +1,5 @@
 ---
-title: Where I want to be, I must not have any limitation
+title: Where I want to be
 date: 2024-06-02
 ---
 

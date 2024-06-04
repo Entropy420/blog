@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import DOMPurify from "dompurify";
 import parse from "html-react-parser";
 import { JSDOM } from "jsdom";
+import "./blog.scss";
 
 export async function generateMetadata({
   params,
@@ -40,20 +41,25 @@ export default async function Blog({ params }: { params: { blogId: string } }) {
     notFound();
   }
 
-  const htmlContent = (await getPostData(blogId))?.content;
-  if (!htmlContent) {
+  const blog = await getPostData(blogId);
+  if (!blog) {
     notFound();
   }
+
+  const { title, date, content } = blog;
 
   // creating a virtual DOM for DOMPurify(as on server side it won't have access to DOM)
   const window = new JSDOM("").window;
   // sanitizes the raw html(removes dangerous tags like <script> <style> etc)
-  const sanitizedHTML = DOMPurify(window).sanitize(htmlContent);
-  // converts the sanitized html to a react element, using dangerouslySetHtml skips react virtual dom and injects code directly in the dom that could create problems latter on
+  const sanitizedHTML = DOMPurify(window).sanitize(content);
+  // converts the sanitized html to a react element. `dangerouslySetHtml` SKIPS react virtual dom and injects code directly in the dom that could create problems latter on
   const reactElement = parse(sanitizedHTML);
 
-  // const UnsafeHtml = { __html: htmlContent };
-
-  return <div>{reactElement}</div>;
-  // return <section dangerouslySetInnerHTML={UnsafeHtml} />;
+  return (
+    <section className="blog-post">
+      <h1 className="blog-post__title">{title}</h1>
+      <p className="blog-post__date">{new Date(date).toDateString()}</p>
+      <article className="blog-post__content">{reactElement}</article>
+    </section>
+  );
 }

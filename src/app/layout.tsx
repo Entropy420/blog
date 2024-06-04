@@ -1,6 +1,5 @@
 import "./global.scss";
 import Navbar from "./_component/Navbar";
-import Picture from "./_component/Picture";
 
 export const metadata = {
   title: "Blog",
@@ -15,7 +14,6 @@ export default function Root({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Navbar />
-        <Picture />
         <main className="wrapper">{children}</main>
       </body>
     </html>

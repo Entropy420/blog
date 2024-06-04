@@ -11,7 +11,7 @@
   }
 }
 
-.blog {
+.blog-listing {
   padding: 1rem;
   border-radius: 0.57rem;
   background-color: ext.$LIGHT-PRIMARY-COLOR;
@@ -20,14 +20,14 @@
   }
 }
 
-.blog:hover {
+.blog-listing:hover {
   transition: all 150ms;
   background-color: ext.$SECONDARY-COLOR;
   color: ext.$FONT-SECONDARY-COLOR;
 }
 
 @include ext.breakpoint-for("phone") {
-  .blog {
+  .blog-listing {
     &__title {
       font-size: 1.25rem;
     }

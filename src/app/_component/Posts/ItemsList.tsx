@@ -4,10 +4,10 @@ type Props = { post: BlogPost };
 export default function ItemsList({ post }: Props) {
   const { id, title, date } = post;
   return (
-    <li className="blog">
+    <li className="blog-listing">
       <Link href={`/blog/${id}`}>
-        <h2 className="blog__title">{title}</h2>
-        <p className="blog__date">{new Date(date).toDateString()}</p>
+        <h2 className="blog-listing__title">{title}</h2>
+        <p className="blog-listing__date">{new Date(date).toDateString()}</p>
       </Link>
     </li>
   );
